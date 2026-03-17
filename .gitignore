@@ -1,0 +1,15 @@
+# --- WireGuard Security ---
+*.key
+privatekey
+publickey
+*.conf
+!wireguard.conf
+
+# --- System & OS Clutter ---
+.DS_Store
+*.log
+*.tmp
+
+# --- sensitive Oracle data ---
+*.pem
+*.pub
