@@ -16,3 +16,7 @@ Oracle blocks all traffic by default. I manually configured these **Ingress Rule
 | :--- | :--- | :--- | :--- |
 | **UDP** | `51820` | `0.0.0.0/0` | WireGuard Handshake |
 | **TCP** | `22` | `My_Home_IP` | Secure SSH Management |
+
+### 3. Compute Shape
+* **Instance:** `VM.Standard.A1.Flex` (ARM Ampere).
+* **Specs:** 1 OCPU / 6GB RAM (OCI Always Free).
