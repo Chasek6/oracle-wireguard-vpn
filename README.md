@@ -39,6 +39,43 @@ Before running any scripts, the cloud environment was manually architected:
 
 ## 🔍 Deep Dive: Understanding the Config 
 
-### Terms
-%i                              This is a variable that stands for the interface name (usually wg0).
+### 📖 Technical Glossary Term Category What it actually means
+
+Masquerade      Networking  The "Invisibility Cloak." Replaces your phone's IP with the Server's Public IP.
+
+eth0            Hardware                    The physical internet card of the Oracle VM.    
+
+wg0             Software                         The virtual encrypted "Tunnel" interface
+.CIDR           Networking                 (e.g., /24 or /32) Defines how many devices can stay on the network.
+
+VCN	              Cloud	                            Virtual Cloud Network. Your private "slice" of the Oracle Data Center.
+
+Ingress Rule	    Security	            An "Incoming" firewall rule. We used this to open port 51820.
+
+Egress Rule	        Security	            An "Outgoing" firewall rule. This lets your VPN talk to the rest of the internet.
+
+Endpoint	        Networking	                The Public IP address of your Oracle Server where the VPN connects.
+
+IPv4 Forwarding	     Kernel	                    'The "Switch" inside Linux that allows it to act like a router instead of just a PC.
+
+NAT / Masquerade	 Networking	               'The process of hiding your phone's private IP and replacing it with the Server's Public IP.
+
+Handshake	        Security	            'The split-second moment your phone and server exchange keys to start the encrypted session.
+
+
+CIDR (10.0.0.1/24)	    Networking	        'A way to define a range of IP addresses. /24 means "This whole local network."
+
+
+
+## How to Use This Repo
+Provision your Oracle ARM Instance.
+
+Open UDP Port 51820 in the OCI Console.
+
+Run the script: chmod +x setup.sh && ./setup.sh.
+
+Configure your wg0.conf using the provided template.
+
+[!TIP]
+Always verify your physical interface name. While usually eth0, some Oracle shapes use ens3. Use ip addr to check!
 
